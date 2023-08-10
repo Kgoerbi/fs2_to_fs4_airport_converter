@@ -1,0 +1,144 @@
+<[file][][EDCB] //10
+ <[tmsimulator_scenery_place][][]
+	//////////////////////////////////////////////////////////////////////////////
+	//
+	// general information
+	//
+	//////////////////////////////////////////////////////////////////////////////
+	<[string8]   [type]          [airport]>
+	<[string8]   [sname]         [Ballenstedt]>
+	<[string8]   [lname]         [Ballenstedt]>
+	<[string8]   [icao]          [EDCB]>
+	<[string8]	 [country]	     [de]>
+	<[tmvector2d][position]      [11.22859057 51.74583055]>			//lon - lat
+	<[float64]   [height]        [153.22]>
+	<[float64]   [size]          [5000]>
+	<[vector2_float64][tower_position][11.23364007 51.74362347]>
+	<[float64]   [tower_height]  [30.0]>
+	<[bool]      [autoheight]    [true]>
+	<[string8]   [coordinate_system][lonlat]>
+	//////////////////////////////////////////////////////////////////////////////
+	//
+	// objects
+	// 
+	//
+	//////////////////////////////////////////////////////////////////////////////
+	<[tmsimulator_scenery_objecttmslist][objects][]
+	  <[tmsimulator_scenery_object][element][0]	//Runway #1 crosses runway #n/a ***Retained***
+		<[string8][type][ground]>
+		<[string8][geometry][rap561m33m_rwy]> //87.575 degrees
+		<[tmvector3d][position][11.22833987 51.74582440 0]>
+		<[float64][orientation][-87.575]>
+	  >
+	  <[tmsimulator_scenery_object][element][1]	//Runway #1 crosses runway #n/a ***Retained***
+		<[string8][type][decal]>
+		<[string8][geometry][rap561m33m_decal]>
+		<[tmvector3d][position][11.22833987 51.74582440 0]>
+		<[float64][orientation][-87.575]>
+	  >
+	  <[tmsimulator_scenery_object][element][2]	//Runway #1 crosses runway #n/a ***Retained***
+		<[string8][type][decal]>
+		<[string8][geometry][09_decal]>
+		<[tmvector3d][position][11.22541171 51.74574771 0]>
+		<[float64][orientation][92.42500000]>
+	  >
+	  <[tmsimulator_scenery_object][element][3]	//Runway #1 crosses runway #n/a ***Retained***
+		<[string8][type][decal]>
+		<[string8][geometry][27_decal]>
+		<[tmvector3d][position][11.23126804 51.74590109 0]>
+		<[float64][orientation][-87.575]>
+	  >
+	  <[tmsimulator_scenery_object][element][4]	//Runway #2 crosses runway #n/a ***Retained***
+		<[string8][type][ground]>
+		<[string8][geometry][rap561m33m_rwy]> //86.785 degrees
+		<[tmvector3d][position][11.22842163 51.74434079 0]>
+		<[float64][orientation][-86.785]>
+	  >
+	  <[tmsimulator_scenery_object][element][5]	//Runway #2 crosses runway #n/a ***Retained***
+		<[string8][type][decal]>
+		<[string8][geometry][rap561m33m_decal]>
+		<[tmvector3d][position][11.22842163 51.74434079 0]>
+		<[float64][orientation][-86.785]>
+	  >
+	  <[tmsimulator_scenery_object][element][6]	//Runway #2 crosses runway #n/a ***Retained***
+		<[string8][type][decal]>
+		<[string8][geometry][09_decal]>
+		<[tmvector3d][position][11.22549555 51.74423912 0]>
+		<[float64][orientation][93.21500000]>
+	  >
+	  <[tmsimulator_scenery_object][element][7]	//Runway #2 crosses runway #n/a ***Retained***
+		<[string8][type][decal]>
+		<[string8][geometry][27_decal]>
+		<[tmvector3d][position][11.23134771 51.74444247 0]>
+		<[float64][orientation][-86.785]>
+	  >
+	>
+	//////////////////////////////////////////////////////////////////////////////
+	//
+	// runways
+	//
+	//////////////////////////////////////////////////////////////////////////////
+	<[tmsimulator_runwaytmslist][runways][]
+			<[tmsimulator_runway][element][0]
+					<[tmvector2d][endpoint1][11.22427380 51.74571783]>
+					<[tmvector2d][endpoint2][11.23240597 51.74593083]>
+					<[tmvector2d][threshold1][11.22427380 51.74571783]>
+					<[tmvector2d][threshold2][11.23240597 51.74593083]>
+					<[float64][width][29.00]>
+					<[string8][name1][09]>
+					<[string8][name2][27]>
+					<[string8] [appltsys1][rail]>
+					<[string8] [appltsys2][rail]>
+					<[string8] [papi1][left]>
+					<[string8] [papi2][left]>
+					<[string8] [reil1][none]>
+					<[string8] [reil2][none]>
+			>
+			<[tmsimulator_runway][element][1]
+					<[tmvector2d][endpoint1][11.22435844 51.74419954]>
+					<[tmvector2d][endpoint2][11.23248484 51.74448191]>
+					<[tmvector2d][threshold1][11.22435844 51.74419954]>
+					<[tmvector2d][threshold2][11.23248484 51.74448191]>
+					<[float64][width][30.00]>
+					<[string8][name1][09]>
+					<[string8][name2][27]>
+					<[string8] [appltsys1][rail]>
+					<[string8] [appltsys2][rail]>
+					<[string8] [papi1][none]>
+					<[string8] [papi2][none]>
+					<[string8] [reil1][none]>
+					<[string8] [reil2][none]>
+			>
+	>
+	//////////////////////////////////////////////////////////////////////////////
+	//
+	// helipads
+	//
+	//////////////////////////////////////////////////////////////////////////////
+	<[list_tmsimulator_helipad][helipads][]
+	
+	>
+	//////////////////////////////////////////////////////////////////////////////
+	//
+	// parking positions
+	//
+	//////////////////////////////////////////////////////////////////////////////
+	<[tmsimulator_parking_positiontmslist][parking_positions][]
+	>
+	
+	
+	///////////////////////////////////////////////////////////////////////////
+	//
+	// cultivation_files
+	//
+	// Add filename here if you have some cultivation
+	//
+	///////////////////////////////////////////////////////////////////////////
+	<[list_tmsimulator_scenery_cultivation][cultivation_files][]
+				<[tmsimulator_scenery_cultivation][element][0]
+					<[string8][filename][EDCB]>
+					<[bool][auto_height][true]>
+				>
+	>
+ >
+>

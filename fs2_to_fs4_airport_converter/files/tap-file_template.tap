@@ -1,0 +1,60 @@
+<[file][][]
+    <[tm_airport_pd][][]
+        <[string8]          [batch_code]        []>
+        <[stringt8c]        [icao]              []>
+        <[stringt8c]        [iata]              []>
+        <[string8]          [name]              []>
+        <[string8]          [name_short]        []>
+        <[stringt8c]        [country]           []>
+        <[float64]          [elevation]         []>
+        <[uint32]           [tags]              [0]>
+        <[uint32]           [priority]          [0]>
+        <[uint16]           [connections]       [0]>
+        <[int8]             [time_zone]         [0]>
+        <[vector2_float64]  [model_center]      []>
+
+        <[vector2_float64]  [tower_position]    []>
+        <[float64]          [tower_height]      []>
+        <[float64]          [tower_view_height] []>
+        <[float64]          [tower_heading]     [000.0]>
+
+
+        <[list_tm_airport_pd_custom_model][custom_models][]                 //leer lassen
+        
+        >
+
+        <[list_tm_airport_pd_tarmac][tarmacs][]                             //leer lassen
+        
+        >
+
+        <[list_tm_airport_pd_line][lines][]                                 //leer lassen
+        
+        >
+
+        <[list_tm_airport_pd_carlot][carlots][]                             //leer lassen
+        
+        >
+        
+        <[list_tm_airport_pd_helipad][helipads][]                           //aus .tsc Datei
+        
+        >
+
+        <[list_tm_airport_pd_parking_position][parking_positions][]         //aus .tsc Datei
+        
+        >
+
+        <[list_tm_airport_pd_rwy_pair][runway_pairs][]                      //aus .tsc Datei? entspricht: runways
+        
+        >
+
+        <[list_tm_airport_pd_boundary][boundaries][]                        //aus .tsc Datei -> [position]
+            <[tm_airport_pd_boundary][element][0]
+
+            >  
+        >
+
+        <[list_tm_airport_pd_xref][xrefs][]                                 //aus .toc Datei
+        
+        >
+    >
+>
