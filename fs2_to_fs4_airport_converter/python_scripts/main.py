@@ -1,14 +1,19 @@
 import os
 import tsc_to_tap
 import get_lon_lat
-import delete
 
 output_folder_path = ('../output/')
 input_folder_path = ('../input/')
 input_folder_path_list = os.listdir(input_folder_path)
 output_file_name = input_folder_path_list[0]
 
-delete.delete_DS_store(input_folder_path + output_file_name + '/')
+try:
+    x = ('.DS_Store')
+    y = os.path.join(input_folder_path, x)
+
+    os.remove(y)
+except Exception as e:
+    print(e)
 
 input_tsc_path = input_folder_path + output_file_name + '/' + output_file_name + '.tsc'
 input_toc_path = input_folder_path + output_file_name + '/' + output_file_name + '.toc'
