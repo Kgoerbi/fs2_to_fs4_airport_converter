@@ -16,7 +16,7 @@ lat = float(get_lon_lat.get_lat(input_tsc_path))
 
 
 
-with open('files/tap-file_template.tap','r') as tap_file_template:          #get template
+with open('../files/tap-file_template.tap','r') as tap_file_template:          #get template
     tap_template = tap_file_template.read()
     tap_file_template.close()
 
