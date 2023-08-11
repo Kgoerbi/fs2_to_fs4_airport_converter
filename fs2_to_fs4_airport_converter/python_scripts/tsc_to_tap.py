@@ -6,21 +6,21 @@ def cp_general_information(file_input, file_output):
     example = r"\[.*?\]\s*\[.*?\]\s*\[(.*?)\]"
     
     #tab_batch_code =    '        <[string8]          [batch_code]        []>'
-    tab_elevation =     '        <[float64]          [elevation]         []>'
     #tab_tags =          '        <[uint32]           [tags]              []>'
     #tab_priority =      '        <[uint32]           [priority]          []>'
     #tab_connections =   '        <[uint16]           [connections]       []>'
     #tab_time_zone =     '        <[int8]             [time_zone]         []>'
     #tab_iata =          '        <[stringt8c]        [iata]              []>'
-    tab_view_height =   '        <[float64]          [tower_view_height] []>'
     #tab_tower_heading = '        <[float64]          [tower_heading]     []>'
-    tab_icao =          '        <[stringt8c]        [icao]              []>'
-    tab_name =          '        <[string8]          [name]              []>'
-    tab_name_short =    '        <[string8]          [name_short]        []>'
-    tab_country =       '        <[stringt8c]        [country]           []>'
-    tab_model_center =  '        <[vector2_float64]  [model_center]      []>'
-    tab_tower_position ='        <[vector2_float64]  [tower_position]    []>'
-    tab_tower_height =  '        <[float64]          [tower_height]      []>'
+    tab_view_height =   '        <[float64][tower_view_height][]>'
+    tab_elevation =     '        <[float64][elevation][]>'
+    tab_icao =          '        <[stringt8c][icao][]>'
+    tab_name =          '        <[string8][name][]>'
+    tab_name_short =    '        <[string8][name_short][]>'
+    tab_country =       '        <[stringt8c][country][]>'
+    tab_model_center =  '        <[vector2_float64][model_center][]>'
+    tab_tower_position ='        <[vector2_float64][tower_position][]>'
+    tab_tower_height =  '        <[float64][tower_height][]>'
     
         
     with open(file_input, 'r') as input_file:
