@@ -147,10 +147,10 @@ def convert_xref(xref_file, tap_file):
     line = 0
     while line < 361:
         
-        with open('files/fs2_xref_flow32_direction.txt', 'r') as file2:
+        with open('../files/fs2_xref_flow32_direction.txt', 'r') as file2:
             search_files = file2.readlines()
     
-        with open('files/fs4_xref_flow64_direction.txt', 'r') as file3:
+        with open('../files/fs4_xref_flow64_direction.txt', 'r') as file3:
             replace_files = file3.readlines()
             
         x = search_files[line]
