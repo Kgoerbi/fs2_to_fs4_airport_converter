@@ -3,8 +3,8 @@ import tsc_to_tap
 import get_lon_lat
 
 
-output_folder_path = ('output/')
-input_folder_path = ('/Users/cedrikrex/Documents/Cedrik/Hobby/Programmieren/Python projekte/fs2_to_fs4_airport_converter/input/')
+output_folder_path = ('../output/')
+input_folder_path = ('../input/')
 input_folder_path_list = os.listdir(input_folder_path)
 output_file_name = input_folder_path_list[0]
 
