@@ -2,10 +2,15 @@ import os
 import tsc_to_tap
 import get_lon_lat
 
+
 output_folder_path = ('../output/')
 input_folder_path = ('../input/')
 input_folder_path_list = os.listdir(input_folder_path)
-output_file_name = input_folder_path_list[0]
+
+for file in input_folder_path_list:
+    if len(file) == 4 or len(file) == 6:
+        output_file_name = file
+    
 
 try:
     x = ('.DS_Store')
@@ -16,10 +21,14 @@ except Exception as e:
     print(e)
 
 input_tsc_path = input_folder_path + output_file_name + '/' + output_file_name + '.tsc'
+
+print(input_tsc_path)
+
 input_toc_path = input_folder_path + output_file_name + '/' + output_file_name + '.toc'
 
 lon = float(get_lon_lat.get_lon(input_tsc_path))
 lat = float(get_lon_lat.get_lat(input_tsc_path))
+
 
 with open('../files/tap-file_template.tap','r') as tap_file_template:          #get template
     tap_template = tap_file_template.read()
