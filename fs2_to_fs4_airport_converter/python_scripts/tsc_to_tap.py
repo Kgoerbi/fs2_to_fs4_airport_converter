@@ -139,41 +139,6 @@ def cp_general_information(file_input, file_output):
         output_file.close()
         input_file.close()
 
-
-def convert_xref(xref_file, tap_file):
-    with open(xref_file, 'r') as source:
-        xref_content = source.readlines()
-    
-    line = 0
-    while line < 361:
-        
-        with open('../files/fs2_xref_flow32_direction.txt', 'r') as file2:
-            search_files = file2.readlines()
-    
-        with open('../files/fs4_xref_flow64_direction.txt', 'r') as file3:
-            replace_files = file3.readlines()
-            
-        x = search_files[line]
-        y = replace_files[line]
-
-        xref_content = [item.replace(x,y) for item in xref_content]
-
-        line = line + 1
-    
-        
-    extracted_xref = ''.join(xref_content[14:-3])
-    
-    new_xref = extracted_xref.replace('[vector3_float64]','[vector2_float64]').lower()
-        
-    with open(tap_file, 'r') as output_file:
-        tap_content = output_file.readlines()
-        
-    tap_content.insert(56, new_xref)
-    
-    with open(tap_file, 'w') as output_file:
-        output_file.writelines(tap_content)
-
-
 def convert_boundaries(lon, lat, tap_file):
     second_line = '                <[list_vector2_float64][points][(' +  str(lon + 0.04) + ' ' + str(lat + 0.02)  +  ') (' +  str(lon + 0.04) + ' ' + str(lat - 0.02)  +  ') (' +  str(lon - 0.04) + ' ' + str(lat - 0.02)  +  ') (' +  str(lon - 0.04) + ' ' + str(lat + 0.02)  +  ') (' +  str(lon + 0.04) + ' ' + str(lat + 0.02)  +  ')  ]>'
     
@@ -184,4 +149,75 @@ def convert_boundaries(lon, lat, tap_file):
     
     with open(tap_file, 'w') as file:
         file.writelines(old_content)
+
+def convert_helipads(file_input,  file_output):
     
+    helipad_line = []
+    
+    with open(file_input, 'r') as file:
+        source = file.readlines()
+        
+        #get line numbers of helipads
+        line_number = 0
+        for line in source:
+            number = 0
+            while number < 50:
+                if line.strip() == '<[tmsimulator_helipad][element][' + str(number) + ']':
+                    helipad_line.append(line_number)
+                if line.strip() == '><[tmsimulator_helipad][element][' + str(number) + ']':
+                    helipad_line.append(line_number)
+                number += 1
+            line_number += 1
+        file.close()
+    
+    print(helipad_line)
+    
+    helipad_position = []
+    helipad_direction = []
+    helipad_radius =[] 
+    helipad_name = [] 
+    
+    #collecting general Data
+    for line in helipad_line:
+        a = source[line + 3]
+        helipad_position.append(a[28:])
+        b = source[line + 5]
+        helipad_direction.append(b[19:])
+        c = source[line + 4]
+        helipad_radius.append(c[18:])
+        d = source[line + 1]
+        helipad_name.append(d[16:])
+    
+    with open(file_output, 'r') as file:
+        target = file.readlines()
+        file.close()
+    
+    x = 0
+    while x < len(helipad_line):
+        y = x * 6
+        a = 46 + y
+        target.insert(a,'')
+        target.insert(a, '<[tm_airport_pd_helipad][element]['+str(x)+']\n')
+        a += 1
+        target.insert(a,'')
+        target.insert(a, '<[vector2_float64][position]'+str(helipad_position[x]))
+        a += 1
+        print(a)
+        target.insert(a,'')
+        target.insert(a, '<[float64][direction]'+str(helipad_direction[x]))
+        a += 1
+        print(a)
+        target.insert(a,'')
+        target.insert(a, '<[float64][radius]'+str(helipad_radius[x]))
+        a += 1
+        target.insert(a,'')
+        target.insert(a, '<[string8][name]['+ str(x + 1) + ']>\n')
+        a += 1
+        target.insert(a,'')
+        target.insert(a, '>\n')
+
+        x+=1
+    
+    with open(file_output, 'w') as file:
+        file.writelines(target)
+        file.close()
