@@ -170,7 +170,6 @@ def convert_helipads(file_input,  file_output):
             line_number += 1
         file.close()
     
-    print(helipad_line)
     
     helipad_position = []
     helipad_direction = []
@@ -197,22 +196,22 @@ def convert_helipads(file_input,  file_output):
         y = x * 6
         a = 46 + y
         target.insert(a,'')
-        target.insert(a, '<[tm_airport_pd_helipad][element]['+str(x)+']\n')
+        target.insert(a, '            <[tm_airport_pd_helipad][element]['+str(x)+']\n')
         a += 1
         target.insert(a,'')
-        target.insert(a, '<[vector2_float64][position]'+str(helipad_position[x]))
+        target.insert(a, '                <[vector2_float64][position]'+str(helipad_position[x]))
         a += 1
         target.insert(a,'')
-        target.insert(a, '<[float64][direction]'+str(helipad_direction[x]))
+        target.insert(a, '                <[float64][direction]'+str(helipad_direction[x]))
         a += 1
         target.insert(a,'')
-        target.insert(a, '<[float64][radius]'+str(helipad_radius[x]))
+        target.insert(a, '                <[float64][radius]'+str(helipad_radius[x]))
         a += 1
         target.insert(a,'')
-        target.insert(a, '<[string8][name]['+ str(x + 1) + ']>\n')
+        target.insert(a, '                <[string8][name]['+ str(x + 1) + ']>\n')
         a += 1
         target.insert(a,'')
-        target.insert(a, '>\n')
+        target.insert(a, '            >\n')
 
         x+=1
     
@@ -265,22 +264,22 @@ def convert_parking_positions(file_input,  file_output):
         y = x * 6
         a = 39 + y
         target.insert(a,'')
-        target.insert(a, '<[tm_airport_pd_parking_position][element]['+str(x)+']\n')
+        target.insert(a, '            <[tm_airport_pd_parking_position][element]['+str(x)+']\n')
         a += 1
         target.insert(a,'')
-        target.insert(a, '<[vector2_float64][position]'+str(pp_position[x]))
+        target.insert(a, '                <[vector2_float64][position]'+str(pp_position[x]))
         a += 1
         target.insert(a,'')
-        target.insert(a, '<[float64][direction]'+str(pp_direction[x]))
+        target.insert(a, '                <[float64][direction]'+str(pp_direction[x]))
         a += 1
         target.insert(a,'')
-        target.insert(a, '<[float64][radius][40]>\n')
+        target.insert(a, '                <[float64][radius][40]>\n')
         a += 1
         target.insert(a,'')
-        target.insert(a, '<[string8][name]'+ str(pp_name[x]))
+        target.insert(a, '                <[string8][name]'+ str(pp_name[x]))
         a += 1
         target.insert(a,'')
-        target.insert(a, '<[float64][type][parked_jet]>>\n')
+        target.insert(a, '                <[float64][type][parked_jet]>\n            >\n')
 
         x+=1
     
