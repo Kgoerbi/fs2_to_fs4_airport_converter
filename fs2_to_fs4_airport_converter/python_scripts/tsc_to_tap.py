@@ -202,11 +202,9 @@ def convert_helipads(file_input,  file_output):
         target.insert(a,'')
         target.insert(a, '<[vector2_float64][position]'+str(helipad_position[x]))
         a += 1
-        print(a)
         target.insert(a,'')
         target.insert(a, '<[float64][direction]'+str(helipad_direction[x]))
         a += 1
-        print(a)
         target.insert(a,'')
         target.insert(a, '<[float64][radius]'+str(helipad_radius[x]))
         a += 1
@@ -215,6 +213,74 @@ def convert_helipads(file_input,  file_output):
         a += 1
         target.insert(a,'')
         target.insert(a, '>\n')
+
+        x+=1
+    
+    with open(file_output, 'w') as file:
+        file.writelines(target)
+        file.close()
+
+def  convert_runway_pairs(file_input, file_output):
+    print('hello World')
+
+def convert_parking_positions(file_input,  file_output):
+    
+    pp_line = []
+    
+    with open(file_input, 'r') as file:
+        source = file.readlines()
+        
+        #get line numbers of helipads
+        line_number = 0
+        for line in source:
+            number = 0
+            while number < 250:
+                if line.strip() == '<[tmsimulator_parking_position][element][' + str(number) + ']':
+                    pp_line.append(line_number)
+                number += 1
+            line_number += 1
+        file.close()
+    
+    
+    pp_position = []
+    pp_direction = []
+    pp_name = [] 
+    
+    #collecting general Data
+    for line in pp_line:
+        a = source[line + 1]
+        pp_position.append(a[28:])
+        b = source[line + 2]
+        pp_direction.append(b[24:])
+        d = source[line + 3]
+        pp_name.append(d[21:])
+    
+    with open(file_output, 'r') as file:
+        target = file.readlines()
+        file.close()
+    
+    
+    x = 0
+    while x < len(pp_line):
+        y = x * 6
+        a = 39 + y
+        target.insert(a,'')
+        target.insert(a, '<[tm_airport_pd_parking_position][element]['+str(x)+']\n')
+        a += 1
+        target.insert(a,'')
+        target.insert(a, '<[vector2_float64][position]'+str(pp_position[x]))
+        a += 1
+        target.insert(a,'')
+        target.insert(a, '<[float64][direction]'+str(pp_direction[x]))
+        a += 1
+        target.insert(a,'')
+        target.insert(a, '<[float64][radius][40]>\n')
+        a += 1
+        target.insert(a,'')
+        target.insert(a, '<[string8][name]'+ str(pp_name[x]))
+        a += 1
+        target.insert(a,'')
+        target.insert(a, '<[float64][type][parked_jet]>>\n')
 
         x+=1
     
