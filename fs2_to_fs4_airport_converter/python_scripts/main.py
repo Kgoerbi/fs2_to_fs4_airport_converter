@@ -44,3 +44,4 @@ tsc_to_tap.cp_general_information(input_tsc_path, output_folder_path + output_fi
 toc_to_tap.convert_xref(input_toc_path,output_folder_path + output_file_name + '.tap')
 tsc_to_tap.convert_boundaries(lon,lat,output_folder_path + output_file_name + '.tap')
 tsc_to_tap.convert_helipads(input_tsc_path,output_folder_path + output_file_name + '.tap')
+tsc_to_tap.convert_parking_positions(input_tsc_path,output_folder_path + output_file_name + '.tap')
