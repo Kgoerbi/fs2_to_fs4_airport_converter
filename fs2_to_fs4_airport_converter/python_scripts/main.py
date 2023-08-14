@@ -12,36 +12,35 @@ for file in input_folder_path_list:
     if len(file) == 4 or len(file) == 6:
         output_file_name = file
     
+        try:
+            x = ('.DS_Store')
+            y = os.path.join(input_folder_path, x)
 
-try:
-    x = ('.DS_Store')
-    y = os.path.join(input_folder_path, x)
+            os.remove(y)
+        except Exception as e:
+            print(e)
 
-    os.remove(y)
-except Exception as e:
-    print(e)
+        input_tsc_path = input_folder_path + output_file_name + '/' + output_file_name + '.tsc'
 
-input_tsc_path = input_folder_path + output_file_name + '/' + output_file_name + '.tsc'
+        print(input_tsc_path)
 
-print(input_tsc_path)
+        input_toc_path = input_folder_path + output_file_name + '/' + output_file_name + '.toc'
 
-input_toc_path = input_folder_path + output_file_name + '/' + output_file_name + '.toc'
-
-lon = float(get_lon_lat.get_lon(input_tsc_path))
-lat = float(get_lon_lat.get_lat(input_tsc_path))
+        lon = float(get_lon_lat.get_lon(input_tsc_path))
+        lat = float(get_lon_lat.get_lat(input_tsc_path))
 
 
-with open('../files/tap-file_template.tap','r') as tap_file_template:          #get template
-    tap_template = tap_file_template.read()
-    tap_file_template.close()
+        with open('../files/tap-file_template.tap','r') as tap_file_template:          #get template
+            tap_template = tap_file_template.read()
+            tap_file_template.close()
 
-with open(output_folder_path + output_file_name + '.tap', 'w+') as output_file:      #create .tap-file
-    
-    output_file.write(tap_template)
-    output_file.close()
+        with open(output_folder_path + output_file_name + '.tap', 'w+') as output_file:      #create .tap-file
+            
+            output_file.write(tap_template)
+            output_file.close()
 
-tsc_to_tap.cp_general_information(input_tsc_path, output_folder_path + output_file_name + '.tap')
-toc_to_tap.convert_xref(input_toc_path,output_folder_path + output_file_name + '.tap')
-tsc_to_tap.convert_boundaries(lon,lat,output_folder_path + output_file_name + '.tap')
-tsc_to_tap.convert_helipads(input_tsc_path,output_folder_path + output_file_name + '.tap')
-tsc_to_tap.convert_parking_positions(input_tsc_path,output_folder_path + output_file_name + '.tap')
+        tsc_to_tap.cp_general_information(input_tsc_path, output_folder_path + output_file_name + '.tap')
+        toc_to_tap.convert_xref(input_toc_path,output_folder_path + output_file_name + '.tap')
+        tsc_to_tap.convert_boundaries(lon,lat,output_folder_path + output_file_name + '.tap')
+        tsc_to_tap.convert_helipads(input_tsc_path,output_folder_path + output_file_name + '.tap')
+        tsc_to_tap.convert_parking_positions(input_tsc_path,output_folder_path + output_file_name + '.tap')
