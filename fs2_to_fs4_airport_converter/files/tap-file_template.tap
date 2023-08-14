@@ -34,16 +34,16 @@
         <[list_tm_airport_pd_carlot][carlots][]
         
         >
-        
-        <[list_tm_airport_pd_helipad][helipads][]
-        
-        >
 
         <[list_tm_airport_pd_parking_position][parking_positions][]
         
         >
 
         <[list_tm_airport_pd_rwy_pair][runway_pairs][]
+        
+        >
+
+        <[list_tm_airport_pd_helipad][helipads][]
         
         >
 
