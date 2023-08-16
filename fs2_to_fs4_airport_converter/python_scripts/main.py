@@ -22,7 +22,7 @@ for file in input_folder_path_list:
 
         input_tsc_path = input_folder_path + output_file_name + '/' + output_file_name + '.tsc'
 
-        print(input_tsc_path)
+
 
         input_toc_path = input_folder_path + output_file_name + '/' + output_file_name + '.toc'
 
@@ -43,4 +43,5 @@ for file in input_folder_path_list:
         toc_to_tap.convert_xref(input_toc_path,output_folder_path + output_file_name + '.tap')
         tsc_to_tap.convert_boundaries(lon,lat,output_folder_path + output_file_name + '.tap')
         tsc_to_tap.convert_helipads(input_tsc_path,output_folder_path + output_file_name + '.tap')
+        tsc_to_tap.convert_runway_pairs(input_tsc_path,output_folder_path + output_file_name + '.tap')
         tsc_to_tap.convert_parking_positions(input_tsc_path,output_folder_path + output_file_name + '.tap')
