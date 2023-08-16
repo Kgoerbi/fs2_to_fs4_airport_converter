@@ -1,5 +1,16 @@
 import re
 
+def append_string_to_line(file_path, line_number, append_string):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+
+
+    lines[line_number - 1] = lines[line_number - 1].rstrip() + append_string
+
+    with open(file_path, 'w') as file:
+        file.writelines(lines)
+
+
 #copy/paste  general information from .tsc to .tap
 def cp_general_information(file_input, file_output):
     
@@ -27,7 +38,7 @@ def cp_general_information(file_input, file_output):
         
         tp_line_object = input_file.readlines()
         
-                #tab_icao
+                #tap_icao
         tp_line  = ''.join(tp_line_object[10])
         ergebnis = re.search(example, tp_line)
         new_content = re.sub(r"\[\s*\]", f"[{ergebnis.group(1)}]", tab_icao)
@@ -39,7 +50,7 @@ def cp_general_information(file_input, file_output):
             file.write(new_tab)
             file.close()
        
-                #tab_name
+                #tap_name
         tp_line  = ''.join(tp_line_object[9])
         ergebnis = re.search(example, tp_line)
         new_content = re.sub(r"\[\s*\]", f"[{ergebnis.group(1)}]", tab_name)
@@ -51,7 +62,7 @@ def cp_general_information(file_input, file_output):
             file.write(new_tab)
             file.close()
         
-                #tab_name_short
+                #tap_name_short
         tp_line  = ''.join(tp_line_object[8])
         ergebnis = re.search(example, tp_line)
         new_content = re.sub(r"\[\s*\]", f"[{ergebnis.group(1)}]", tab_name_short)
@@ -208,10 +219,10 @@ def convert_helipads(file_input,  file_output):
         target.insert(a, '                <[float64][radius]'+str(helipad_radius[x]))
         a += 1
         target.insert(a,'')
-        target.insert(a, '                <[string8][name]['+ str(x + 1) + ']>\n')
-        a += 1
-        target.insert(a,'')
-        target.insert(a, '            >\n')
+        target.insert(a, '                <[string8][name]['+ str(x + 1) + ']>\n            >\n')
+        # a += 1
+        # target.insert(a,'')
+        # target.insert(a, '            >\n            >\n')
 
         x+=1
     
@@ -220,7 +231,131 @@ def convert_helipads(file_input,  file_output):
         file.close()
 
 def  convert_runway_pairs(file_input, file_output):
-    print('hello World')
+    
+    runway_line = []
+    
+    with open(file_input, 'r') as file:
+        
+        source = file.readlines()
+        
+        #get line numbers of runway_pairs
+        line_number = 0
+        for line in source:
+            number = 0
+            while number < 250:
+                if line.strip() == '<[tmsimulator_runway][element][' + str(number) + ']':
+                    runway_line.append(line_number)
+                number += 1
+            line_number += 1
+        file.close()
+        
+        
+    threshold_1 = []
+    threshold_2 = []
+    identifier_1 = []
+    identifier_2 = []
+    appltsys_1 = []
+    appltsys_2 = []
+    reil_1 = []
+    reil_2 = []
+    papi_1 = []
+    papi_2 = []
+    direction_1 = []
+    direction_2 = []
+    width = []
+        
+    for line in runway_line:
+        a = source[line+3]
+        threshold_1.append(a[31:])
+        a = source[line+4]
+        threshold_2.append(a[31:])
+        a = source[line+6]
+        identifier_1.append(a[23:])
+        a = source[line+7]
+        identifier_2.append(a[23:])
+        a = source[line+8]
+        appltsys_1.append(a[28:])
+        a = source[line+9]
+        appltsys_2.append(a[28:])
+        a = source[line+12]
+        reil_1.append(a[24:])
+        a = source[line+13]
+        reil_2.append(a[24:])
+        a = source[line+10]
+        papi_1.append(a[24:])
+        a = source[line+11]
+        papi_2.append(a[24:])
+        #a = source[line+]
+        #direction_1.append(a[:])
+        #a = source[line+]
+        #direction_2.append(a[:])
+        a = source[line+5]
+        width.append(a[23:])
+    
+    with open(file_output, 'r') as file:
+        target = file.readlines()
+        file.close()
+        
+    with open('../files/runway_pairs-template.txt', 'r') as file:
+        template = file.readlines()
+        file.close()
+    
+    
+    number = 0
+    while number < len(runway_line):
+        number2 = 44
+        while number2 > 0:
+            #target.insert(5,'\n')
+            target.insert(42, template[number2])
+            number2 -= 1
+            
+        #target.insert(5,'\n')
+        number+=1
+    
+    with open(file_output, 'w') as file:
+        file.writelines(target)
+        file.close()
+    
+    number = 0
+    while number < len(runway_line):
+        x = 42 + number * 43
+        print(x)
+        y = x + 3
+        append_string_to_line(file_output, y, threshold_1[number])
+        y = x + 5
+        append_string_to_line(file_output, y, identifier_1[number])
+        y = x + 6
+        append_string_to_line(file_output, y, appltsys_1[number])
+        y = x + 7
+        append_string_to_line(file_output, y, reil_1[number])
+        y = x + 8
+        append_string_to_line(file_output, y, papi_1[number])
+        #y = x + 4
+        #append_string_to_line(file_output, y, direction_1[number])
+
+        y = x + 21
+        append_string_to_line(file_output, y, threshold_2[number])
+        y = x + 23
+        append_string_to_line(file_output, y, identifier_2[number])
+        y = x + 24
+        append_string_to_line(file_output, y, appltsys_2[number])
+        y = x + 25
+        append_string_to_line(file_output, y, reil_2[number])
+        y = x + 26
+        append_string_to_line(file_output, y, papi_2[number])
+        #y = x + 4
+        #append_string_to_line(file_output, y, direction_1[number])
+        
+        y = x + 39
+        append_string_to_line(file_output, y, width[number])
+
+        
+        number += 1
+    
+
+
+
+#convert_runway_pairs('../input/KNKX/KNKX.tsc', '../output/KNKX.tap')
 
 def convert_parking_positions(file_input,  file_output):
     
@@ -229,7 +364,7 @@ def convert_parking_positions(file_input,  file_output):
     with open(file_input, 'r') as file:
         source = file.readlines()
         
-        #get line numbers of helipads
+        #get line numbers of parking_positions
         line_number = 0
         for line in source:
             number = 0
