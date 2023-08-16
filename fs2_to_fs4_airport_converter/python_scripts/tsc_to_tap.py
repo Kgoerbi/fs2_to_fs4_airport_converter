@@ -270,6 +270,7 @@ def  convert_runway_pairs(file_input, file_output):
         a = source[line+4]
         threshold_2.append(a[31:])
         a = source[line+6]
+        #a2= a[]
         identifier_1.append(a[23:])
         a = source[line+7]
         identifier_2.append(a[23:])
@@ -291,6 +292,7 @@ def  convert_runway_pairs(file_input, file_output):
         #direction_2.append(a[:])
         a = source[line+5]
         width.append(a[23:])
+    
     
     with open(file_output, 'r') as file:
         target = file.readlines()
@@ -318,8 +320,8 @@ def  convert_runway_pairs(file_input, file_output):
     
     number = 0
     while number < len(runway_line):
-        x = 42 + number * 43
-        print(x)
+        x = 43 + number * 44
+        append_string_to_line(file_output, x, str(number) + ']\n')
         y = x + 3
         append_string_to_line(file_output, y, threshold_1[number])
         y = x + 5
