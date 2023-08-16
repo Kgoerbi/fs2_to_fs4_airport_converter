@@ -1,4 +1,5 @@
-
+			
+			<[tm_airport_pd_rwy_pair][element][
 				<[array_tm_airport_pd_rwy][runway_pair][]
 					<[tm_airport_pd_rwy][element][0]
 						<[vector2_float64][threshold][
@@ -8,7 +9,7 @@
 						<[string8][reil][
 						<[string8][papi][
 						<[float64][direction][000.0]>
-						<[float64][elevation][0.0]>
+						<[float64][elevation][0]>
 						<[bool][approach][false]>
 						<[bool][takeoff][false]>
 						<[bool][marking_piano][false]>
@@ -26,7 +27,7 @@
 						<[string8][reil][
 						<[string8][papi][
 						<[float64][direction][000.0]>
-						<[float64][elevation][0.0]>
+						<[float64][elevation][0]>
 						<[bool][approach][false]>
 						<[bool][takeoff][false]>
 						<[bool][marking_piano][false]>
@@ -38,8 +39,8 @@
 					>
 				>
 				<[float64][width][
-				<[string8][material][asphalt_runway_typestd]>
+				<[string8][material][asphalt_runway__typestd]>
 				<[string8][brightness][0.5]>
-				<[bool][marking_centreline][]>
-				<[bool][marking_sidelines][]>
+				<[bool][marking_centreline][true]>
+				<[bool][marking_sidelines][false]>
 			>
