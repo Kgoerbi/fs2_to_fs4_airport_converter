@@ -1,4 +1,5 @@
 import re
+import math
 
 def append_string_to_line(file_path, line_number, append_string):
     with open(file_path, 'r') as file:
@@ -10,7 +11,25 @@ def append_string_to_line(file_path, line_number, append_string):
     with open(file_path, 'w') as file:
         file.writelines(lines)
 
+def get_directions(lon1, lat1, lon2, lat2):
+    # Konvertiere Grad in Bogenmaß
+    lon1 = math.radians(lon1)
+    lat1 = math.radians(lat1)
+    lon2 = math.radians(lon2)
+    lat2 = math.radians(lat2)
 
+    # Differenzen der Längen- und Breitengrade
+    d_lon = lon2 - lon1
+    d_lat = lat2 - lat1
+
+    # Haversine-Formel
+    a = math.sin(d_lat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(d_lon / 2) ** 2
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+    # Berechne den Winkel in Grad
+    angle = math.degrees(c)
+
+    return angle
 #copy/paste  general information from .tsc to .tap
 def cp_general_information(file_input, file_output):
     
@@ -263,6 +282,9 @@ def  convert_runway_pairs(file_input, file_output):
     direction_1 = []
     direction_2 = []
     width = []
+    
+    endpoint_1 = []
+    endpoint_2 = []
         
     for line in runway_line:
         a = source[line+3]
@@ -292,7 +314,22 @@ def  convert_runway_pairs(file_input, file_output):
         #direction_2.append(a[:])
         a = source[line+5]
         width.append(a[23:])
+        
+        a = source[line+4]
+        endpoint_1.append(a[31:])
+        a = source[line+5]
+        endpoint_1.append(a[22:])
     
+    # number3 = 0
+    # for threshold in threshold_1:
+    #     lon1 = endpoint_1[number3]
+    #     lat1 = endpoint_1[number3]
+    #     lon2 = threshold_1[number3]
+    #     lat2 = threshold_1[number3]
+    #     print(lon1)
+    #     print(float(lon1[:15]), float(lat1[13:]))
+    #     #direction_1.append(get_directions(float(lon1[:13]), float(lat1[13:])))
+    #     number3 += 1
     
     with open(file_output, 'r') as file:
         target = file.readlines()
@@ -349,7 +386,9 @@ def  convert_runway_pairs(file_input, file_output):
         #append_string_to_line(file_output, y, direction_1[number])
         
         y = x + 39
-        append_string_to_line(file_output, y, width[number] + '\n>')
+        append_string_to_line(file_output, y, width[number])
+        y = x + 43
+        append_string_to_line(file_output, y, '\n>\n')
 
         
         number += 1
