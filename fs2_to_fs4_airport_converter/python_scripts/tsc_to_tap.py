@@ -320,7 +320,7 @@ def  convert_runway_pairs(file_input, file_output):
     
     number = 0
     while number < len(runway_line):
-        x = 43 + number * 44
+        x = 43 + number * 45
         append_string_to_line(file_output, x, str(number) + ']\n')
         y = x + 3
         append_string_to_line(file_output, y, threshold_1[number])
@@ -349,7 +349,7 @@ def  convert_runway_pairs(file_input, file_output):
         #append_string_to_line(file_output, y, direction_1[number])
         
         y = x + 39
-        append_string_to_line(file_output, y, width[number])
+        append_string_to_line(file_output, y, width[number] + '\n>')
 
         
         number += 1
