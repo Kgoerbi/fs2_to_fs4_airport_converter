@@ -230,7 +230,7 @@ def convert_helipads(file_input,  file_output):
         file.writelines(target)
         file.close()
 
-def  convert_runway_pairs(file_input, file_output):
+def convert_runway_pairs(file_input, file_output):
     
     runway_line = []
     
@@ -353,12 +353,7 @@ def  convert_runway_pairs(file_input, file_output):
 
         
         number += 1
-    
-
-
-
 #convert_runway_pairs('../input/KNKX/KNKX.tsc', '../output/KNKX.tap')
-
 def convert_parking_positions(file_input,  file_output):
     
     pp_line = []
