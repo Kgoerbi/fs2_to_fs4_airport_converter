@@ -156,7 +156,7 @@ def convert_boundaries(lon, lat, tap_file):
     with open(tap_file, 'r') as file:
         old_content = file.readlines()
         
-    old_content.insert(51, second_line)
+    old_content.insert(47, second_line)
     
     with open(tap_file, 'w') as file:
         file.writelines(old_content)
@@ -205,7 +205,7 @@ def convert_helipads(file_input,  file_output):
     x = 0
     while x < len(helipad_line):
         y = x * 6
-        a = 46 + y
+        a = 42 + y
         target.insert(a,'')
         target.insert(a, '            <[tm_airport_pd_helipad][element]['+str(x)+']\n')
         a += 1
@@ -306,7 +306,7 @@ def convert_runway_pairs(file_input, file_output):
         number2 = 44
         while number2 > 0:
             #target.insert(5,'\n')
-            target.insert(42, template[number2])
+            target.insert(38, template[number2])
             number2 -= 1
             
         #target.insert(5,'\n')
@@ -318,7 +318,7 @@ def convert_runway_pairs(file_input, file_output):
     
     number = 0
     while number < len(runway_line):
-        x = 43 + number * 45
+        x = 39 + number * 45
         append_string_to_line(file_output, x, str(number) + ']\n')
         y = x + 3
         append_string_to_line(file_output, y, threshold_1[number])
@@ -393,8 +393,8 @@ def convert_parking_positions(file_input,  file_output):
     
     x = 0
     while x < len(pp_line):
-        y = x * 6
-        a = 39 + y
+        y = x * 7
+        a = 34 + y
         target.insert(a,'')
         target.insert(a, '            <[tm_airport_pd_parking_position][element]['+str(x)+']\n')
         a += 1
