@@ -26,7 +26,7 @@ def convert_xref(xref_file, tap_file):
     with open(tap_file, 'r') as output_file:
         tap_content = output_file.readlines()
         
-    tap_content.insert(56, new_xref)
+    tap_content.insert(52, new_xref)
     
     with open(tap_file, 'w') as output_file:
         output_file.writelines(tap_content)
