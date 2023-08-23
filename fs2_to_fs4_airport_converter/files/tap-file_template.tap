@@ -20,19 +20,15 @@
 
 
         <[list_tm_airport_pd_custom_model][custom_models][]
-        
         >
 
         <[list_tm_airport_pd_tarmac][tarmacs][]
-        
         >
 
         <[list_tm_airport_pd_line][lines][]
-        
         >
 
         <[list_tm_airport_pd_carlot][carlots][]
-        
         >
 
         <[list_tm_airport_pd_parking_position][parking_positions][]
@@ -54,7 +50,7 @@
         >
 
         <[list_tm_airport_pd_xref][xrefs][]
-        
+          
         >
     >
 >
