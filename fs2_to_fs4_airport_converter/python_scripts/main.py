@@ -3,7 +3,7 @@ import tsc_to_tap
 import toc_to_tap
 import get_lon_lat
 
-
+#def to replace all "tabs" with four spaces
 def remove_tabs(file):
     with open(file, 'r') as file1:
         a = file1.readlines()
@@ -14,7 +14,7 @@ def remove_tabs(file):
         file2.writelines(b)
         file2.close()
 
-
+#here you define your input/output folder path,if you have changed it
 output_folder_path = ('../output/')
 input_folder_path = ('../input/')
 input_folder_path_list = os.listdir(input_folder_path)
@@ -32,14 +32,10 @@ for file in input_folder_path_list:
             print(e)
 
         input_tsc_path = input_folder_path + output_file_name + '/' + output_file_name + '.tsc'
-
-
-
         input_toc_path = input_folder_path + output_file_name + '/' + output_file_name + '.toc'
 
         lon = float(get_lon_lat.get_lon(input_tsc_path))
         lat = float(get_lon_lat.get_lat(input_tsc_path))
-
 
         with open('../files/tap-file_template.tap','r') as tap_file_template:          #get template
             tap_template = tap_file_template.read()
