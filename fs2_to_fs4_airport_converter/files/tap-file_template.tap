@@ -3,8 +3,8 @@
         <[string8][batch_code][]>
         <[stringt8c][icao][]>
         <[stringt8c][iata][]>
-        <[string8][name][]>
-        <[string8][name_short][]>
+        <[string8][name][lname_sh]>
+        <[string8][name_short][sname_sh]>
         <[stringt8c][country][]>
         <[float64][elevation][]>
         <[uint32][tags][0]>
