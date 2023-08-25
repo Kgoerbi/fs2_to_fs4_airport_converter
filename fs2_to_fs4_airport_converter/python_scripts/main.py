@@ -59,4 +59,4 @@ for file in input_folder_path_list:
                 
                 remove_tabs(output_folder_path + output_file_name + '.tap')
     except Exception as e:
-        print(output_file_name + ': '+ e)
+        print(output_file_name + ': '+ str(e))
