@@ -20,7 +20,7 @@ input_folder_path_list = os.listdir(input_folder_path)
 
 for file in input_folder_path_list:
     try:
-        if len(file) == 4 or len(file) == 6:
+        if len(file) == 4 or len(file) == 5 or len(file) == 6:
             output_file_name = file
         
             try:
