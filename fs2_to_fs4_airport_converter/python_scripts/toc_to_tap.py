@@ -19,7 +19,7 @@ def convert_xref(xref_file, tap_file):
         line = line + 1
     
         
-    extracted_xref = ''.join(xref_content[14:-3])
+    extracted_xref = '        '.join(xref_content[14:-3])
     
     new_xref = extracted_xref.replace('[vector3_float64]','[vector2_float64]').lower()
         
