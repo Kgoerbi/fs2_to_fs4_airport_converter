@@ -19,14 +19,14 @@ def convert_xref(xref_file, tap_file):
         line = line + 1
     
         
-    extracted_xref = '        '.join(xref_content[13:-3])
+    extracted_xref = '        '.join(xref_content[13:-4])
     
     new_xref = extracted_xref.replace('[vector3_float64]','[vector2_float64]').lower()
         
     with open(tap_file, 'r') as output_file:
         tap_content = output_file.readlines()
         
-    tap_content.insert(52, new_xref)
+    tap_content.insert(51, new_xref)
     
     with open(tap_file, 'w') as output_file:
         output_file.writelines(tap_content)
