@@ -51,24 +51,20 @@ def cp_general_information(file_input, file_output):
             file.close()
        
                 #tap_name
-        tp_line  = ''.join(tp_line_object[9])
-        ergebnis = re.search(example, tp_line)
-        new_content = re.sub(r"\[\s*\]", f"[{ergebnis.group(1)}]", tab_name)
-        
+        name_line = tp_line_object[9].strip()
+            
         with open(file_output, 'r' ) as output_file:
-            new_tab = output_file.read().replace(tab_name,new_content)
+            new_tab = output_file.read().replace('lname_sh]>', name_line[30:])
 
         with open(file_output, 'w') as file:
             file.write(new_tab)
             file.close()
         
                 #tap_name_short
-        tp_line  = ''.join(tp_line_object[8])
-        ergebnis = re.search(example, tp_line)
-        new_content = re.sub(r"\[\s*\]", f"[{ergebnis.group(1)}]", tab_name_short)
+        sname_line = tp_line_object[8].strip()
         
         with open(file_output, 'r' ) as output_file:
-            new_tab = output_file.read().replace(tab_name_short,new_content)
+            new_tab = output_file.read().replace('sname_sh]>', sname_line[30:])
 
         with open(file_output, 'w') as file:
             file.write(new_tab)
