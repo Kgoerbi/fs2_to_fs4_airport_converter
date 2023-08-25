@@ -29,7 +29,7 @@ for file in input_folder_path_list:
 
                 os.remove(y)
             except Exception as e:
-                print(e)
+                dump = 0
 
             input_tsc_path = input_folder_path + output_file_name + '/' + output_file_name + '.tsc'
 
