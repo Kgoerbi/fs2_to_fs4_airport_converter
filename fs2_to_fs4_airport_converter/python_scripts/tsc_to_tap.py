@@ -152,7 +152,7 @@ def convert_boundaries(lon, lat, tap_file):
     with open(tap_file, 'r') as file:
         old_content = file.readlines()
         
-    old_content.insert(47, second_line)
+    old_content.insert(46, second_line)
     
     with open(tap_file, 'w') as file:
         file.writelines(old_content)
