@@ -216,10 +216,7 @@ def convert_helipads(file_input,  file_output):
         a += 1
         target.insert(a,'')
         target.insert(a, '                <[string8][name]['+ str(x + 1) + ']>\n            >\n')
-        # a += 1
-        # target.insert(a,'')
-        # target.insert(a, '            >\n            >\n')
-
+        
         x+=1
     
     with open(file_output, 'w') as file:
@@ -349,7 +346,7 @@ def convert_runway_pairs(file_input, file_output):
 
         
         number += 1
-#convert_runway_pairs('../input/KNKX/KNKX.tsc', '../output/KNKX.tap')
+
 def convert_parking_positions(file_input,  file_output):
     
     pp_line = []
