@@ -1,3 +1,21 @@
+#
+#   fs2 to fs4 airport converter
+#
+#   This project is a collaboration with Mickxer. The program extracts the
+#   required data from the .toc and .tsc file in the input folder and creates a 
+#   .tap file with the data in the output folder. (see README.txt)
+#
+#   link: https://github.com/Kgoerbi/fs2_to_fs4_airport_converter
+#
+#   licence: CC BY-NC 4.0 Lizenz
+#       https://creativecommons.org/licenses/by-nc/4.0/deed.en
+#   
+#   Bug reports can be done via GitHub.
+#   
+#   written by kgoerbi in collaboration with Mickxer
+#
+
+
 import os
 import tsc_to_tap
 import toc_to_tap
@@ -12,8 +30,7 @@ def remove_tabs(file):
         b = [item.replace('	', '    ') for item in a]
         file2.writelines(b)
         file2.close()
-
-
+    
 output_folder_path = ('../output/')
 input_folder_path = ('../input/')
 input_folder_path_list = os.listdir(input_folder_path)
@@ -56,7 +73,7 @@ for file in input_folder_path_list:
                 tsc_to_tap.convert_helipads(input_tsc_path,output_folder_path + output_file_name + '.tap')
                 tsc_to_tap.convert_runway_pairs(input_tsc_path,output_folder_path + output_file_name + '.tap')
                 tsc_to_tap.convert_parking_positions(input_tsc_path,output_folder_path + output_file_name + '.tap')
-                
+                                
                 remove_tabs(output_folder_path + output_file_name + '.tap')
     except Exception as e:
         print(output_file_name + ': '+ str(e))
