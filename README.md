@@ -5,16 +5,18 @@
 
 IPACS now offers the **[Aerofly FS Flight Simulator](https://www.aerofly.com)** in version **FS 4**.
 
-For the previous version **FS 2** there are more than 3,500 airports in over 180 countries in the **[FSCloudport](https://www.fscloudport.com)**. When downloading an airport, a folder with its [ICAO code](https://en.wikipedia.org/wiki/ICAO_airport_code) is created and the airport-specific files are stored in this folder. The most important data are in the two text files ICAO.TOC and ICAO.TSC.
+For the previous version **FS 2** there are more than 3,500 airports in over 180 countries in the **[FSCloudport](https://www.fscloudport.com)**. When downloading an airport, a folder with its [ICAO code](https://en.wikipedia.org/wiki/ICAO_airport_code) is created and the airport-specific files are stored in this folder. The most important data are in the two text files ICAO.TOC and ICAO.TSC.[^1]
 
 Compared to FS 2, the aerodromes in **FS 4** function in a simpler structure with considerably less data. Among other things, the data of the two text files are now combined in a text file ICAO.TAP, which can be edited with a text editor and/or imported into the AirportCreationTool (ACT) and/or converted with the [airport TAP converter (see this article in the Aerofly Forum)](https://www.aerofly.com/community/forum/index.php?thread/19827-aerofly-fs-airport-creation-tool-early-alpha-version-work-in-progress/&postID=123276#post123276) and used in FS 4.
 
 **The software "fs2_to_fs4_airport_converter" generates the ICAO.TAP file for FS 4 from the previous ICAO.TOC and ICAO.TSC files for FS 2 and transfers all data.**
 
+[^1]: The letters "ICAO" in file and directory names act as placeholders for the ICAO codes of airfields (e.g. EGLL for London Heathrow Airport) or comparable codes for smaller airfields (e.g. GB0001 for RAF Barford St .John).
+
 
 # Data
 
-These data are inserted into the TAP file
+These data[^2] are inserted into the TAP file:
 
 * from the TSC file:
   * from General: `icao`, `iata`, `name`, `name_short`, `country`, `elevation`, `model_center`.
@@ -32,23 +34,55 @@ These data are inserted into the TAP file
   * for Parking: `radius [40]`, `type [parked_jet]`.
   * for Boundaries: `points [(lon+0.04 lat+0.02) (lon+0.04 lat-0.02) (lon-0.04 lat-0.02) (lon-0.04 lat+0.02) (lon+0.04 lat+0.02)]`
 
+[^2]: The terms are the names in FS 4.
 
 # Installation / Deinstallation
 
 ## Installation
 
-UNDER CONSTRUCTION
+After downloading the "Download ZIP" file, it is automatically unzipped into the "fs2_to_fs4_airport_converter-main" folder with the subfolder "fs2_to_fs4_airport_converter".
+
+Move "fs2_to_fs4_airport_converter" to a location accessible from the TERMINAL.
 
 ## Deinstallation
 
+Delete the folder "fs2_to_fs4_airport_converter".
+
+
+# Use of the software
+
+### 1. Download
+
+* load the desired FS 2 airports from [FSCloudPort](https://www.fscloudport.com) into the directory "...path../**fs2_to_fs4_airport_converter/input**/"
+
+The downloaded ICAO.ZIP files can then be found here: "...path../fs2_to_fs4_airport_converter/input/**ICAO.ZIP**"
+
+### 2. Unzip
+
+* unzip the ICAO.ZIP files
+
+Unzipping creates its own folder: "...path../fs2_to_fs4_airport_converter/input/**ICAO/..**" and saves the associated files in these, of which only the two files **ICAO.TOC** and **ICAO.TSC** are necessary.
+
+* delete the ICAO.ZIP files
+
+### 3. Convert
+
+* open TERMINAL
+* change to the directory with `cd ..path../fs2_to_fs4_airport_converter/python_scripts`
+* start the program with `python3 main.py`
+
+The program creates an FS 4 file ICAO.TAP from the two FS 2 files ICAO.TOC and ICAO.TSC in each folder and saves this under "...path../**fs2_to_fs4_airport_converter/output/ICAO.TAP**".
+
+This process may take a few seconds:
+- If the program has run through without errors, the cursor will then appear in the TERMINAL at the input point as before the program started.
+- If there are errors, the ICAO codes of the affected airports are listed in the TERMINAL. The only known errors so far are letters in the `name` and `name_short` fields that do not correspond to the ASCII code. These letters must then be replaced by ASCII-compliant characters.
+
+
+### 4. TAP-Dateien nutzen
+
 UNDER CONSTRUCTION
 
 
-# Funktion
-
-UNDER CONSTRUCTION
-
-
-# Anwendung
+# Mögliche Anwendungen nach dem Konvertieren
 
 UNDER CONSTRUCTION
