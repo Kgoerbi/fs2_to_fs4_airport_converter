@@ -1,4 +1,6 @@
--------------------- UNDER CONSTRUCTION --------------------
+# Lizenz
+
+This work is licensed under **Creative Commons Attribution-NonCommercial 4.0 International License** ([short description](https://creativecommons.org/licenses/by-nc/4.0/deed.en); [copy of this license](https://creativecommons.org/licenses/by-nc/4.0/legalcode)).
 
 
 # Object
@@ -49,15 +51,15 @@ Move "fs2_to_fs4_airport_converter" to a location accessible from the TERMINAL.
 Delete the folder "fs2_to_fs4_airport_converter".
 
 
-# Use of the software
+# Use
 
-### 1. Download
+## 1. Download
 
 * load the desired FS 2 airports from [FSCloudPort](https://www.fscloudport.com) into the directory "...path../**fs2_to_fs4_airport_converter/input**/"
 
 The downloaded ICAO.ZIP files can then be found here: "...path../fs2_to_fs4_airport_converter/input/**ICAO.ZIP**"
 
-### 2. Unzip
+## 2. Unzip
 
 * unzip the ICAO.ZIP files
 
@@ -65,7 +67,7 @@ Unzipping creates its own folder: "...path../fs2_to_fs4_airport_converter/input/
 
 * delete the ICAO.ZIP files
 
-### 3. Convert
+## 3. Convert
 
 * open TERMINAL
 * change to the directory with `cd ..path../fs2_to_fs4_airport_converter/python_scripts`
@@ -78,11 +80,40 @@ This process may take a few seconds:
 - If there are errors, the ICAO codes of the affected airports are listed in the TERMINAL. The only known errors so far are letters in the `name` and `name_short` fields that do not correspond to the ASCII code. These letters must then be replaced by ASCII-compliant characters.
 
 
-### 4. TAP-Dateien nutzen
+# Applications after converting
 
-UNDER CONSTRUCTION
+The TAP files can now be used.
+
+## 1. Use in FS 4
+
+With [airport TAP converter (see this article in the Aerofly Forum)](https://www.aerofly.com/community/forum/index.php?thread/19827-aerofly-fs-airport-creation-tool-early-alpha-version-work-in-progress/&postID=123276#post123276) the TAP files are converted for direct use in FS 4. An "icao" folder with the four files "icao.tmb", "icao.toc", "icao.tsc" and "icao.wad" is created for each airport and placed in the user folder "/Users/username/Library/Application Support/Aerofly FS 4/**scenery/airport**".
+
+These airfields in FS 4 are at the same level as FS 2 and lack the FS 4 features:
+* Towers face east (`direction [90]`).
+* Runways have a standard design (see "Data" above).
+* Parking positions have a standard design (see "Data" above).
+*Imported buildings may overlap with existing automatic buildings.
+
+## 2. Editing with a text editor
+
+The TAP files have content similar to that described in the [AEROFLY FS WIKI for FS 2]([https://www.aerofly.com/dokuwiki/doku.php/start]) in the "Developer / Scenery Development" section.
+
+After editing with a text editor, the TAP files can then be used in FS 4 as described under "1. Use in FS 4".
+
+## 3. Import in Airport Creation Tool
+
+The TAP files can be integrated directly into the [Airport Creation Tool (currently in alpha testing)](https://tap-user.aerofly.com) and further edited there.
 
 
-# Mögliche Anwendungen nach dem Konvertieren
 
-UNDER CONSTRUCTION
+
+
+
+
+
+
+
+
+
+
+
