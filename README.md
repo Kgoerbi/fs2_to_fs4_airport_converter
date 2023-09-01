@@ -28,7 +28,7 @@ These data[^2] are inserted into the TAP file:
   * from Helipad: `position`, `direction`, `radius`, `name`
 
 * from the TOC file:
-  * from xref: `name` (changed from uppercase to lowercase), `position`, `direction` (converted from FS 2`orientation` to FS 4-`direction`)
+  * from xref: `name` (changed from uppercase to lowercase), `position`, `direction` (converted from FS 2-`orientation` to FS 4-`direction`)
 
 * added as default values:
   * for Tower-View: `tower_heading [0]`
