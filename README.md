@@ -23,8 +23,8 @@ The software has been tested with **MacOS** and **WindowsOS**.
 These data[^2] are inserted into the TAP file:
 
 * from the TSC file:
-  * from General: `icao`, `iata`, `name`, `name_short`, `country`, `elevation`, `model_center`.
-  * from Tower-View: `tower_position`, `tower_height`, `tower_view_height`.
+  * from General: `icao`, `iata`, `name`, `name_short`, `country`, `elevation`, `model_center`
+  * from Tower-View: `tower_position`, `tower_height`, `tower_view_height`
   * from Runway: `threshold`, `identifier`, `appltsys`, `reil`, `papi`, `widht` 
   * from Parking: `position`, `direction`, `name`
   * from Helipad: `position`, `direction`, `radius`, `name`
@@ -35,7 +35,7 @@ These data[^2] are inserted into the TAP file:
 * added as default values:
   * for Tower-View: `tower_heading [0]`
   * for Runway: `extension [0]`, `direction []`, `elevation] []`, `approach [false]`, `takeoff [false]`, `marking_piano [false]`, `marking_touchdown [false]`, `marking_threshold [false]`, `marking_aimingpoint [false]`, `marking_nonumbers [true]`, `marking_skidmark [false]`, `material [asphalt_runway__typestd]`, `brightness [0.5]`, `marking_centreline [true]`, `marking_sidelines [false]`
-  * for Parking: `radius [40]`, `type [parked_jet]`.
+  * for Parking: `radius [40]`, `type [parked_jet]`
   * for Boundaries: `points [(lon+0.04 lat+0.02) (lon+0.04 lat-0.02) (lon-0.04 lat-0.02) (lon-0.04 lat+0.02) (lon+0.04 lat+0.02)]`
 
 [^2]: The terms are the names in FS 4.
