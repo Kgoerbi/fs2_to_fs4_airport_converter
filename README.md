@@ -99,6 +99,15 @@ These aerodromes in FS 4 are at the same level as FS 2 and lack the FS 4 feature
 * Parking positions have a standard design (see "Data" above).
 * Imported buildings may overlap with existing automatic buildings.
 
+The aerodromes should still be (optically) reprocessed:
+* The towers should be adapted to reality.
+* The runways should be adapted to reality.
+* The parking positions should be adapted to reality.
+* The imported buildings should be supplemented with tarmacs to hide the standard buildings.
+* The operating areas for aircrafts can be optimized with tarmacs.
+* The operating areas for aircrafts can be optimized with lines.
+* The aerodromes can be designed with other objects.
+
 ## 2. Editing with a text editor
 
 The TAP files have content similar to that described in the [AEROFLY FS WIKI for FS 2](https://www.aerofly.com/dokuwiki/doku.php/start) in the "Developer / Scenery Development" section.
