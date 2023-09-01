@@ -22,16 +22,16 @@ These data[^2] are inserted into the TAP file:
 
 * from the TSC file:
   * from General: `icao`, `iata`, `name`, `name_short`, `country`, `elevation`, `model_center`.
-  * from Tower: `tower_position`, `tower_height`, `tower_view_height`.
+  * from Tower-View: `tower_position`, `tower_height`, `tower_view_height`.
   * from Runway: `threshold`, `identifier`, `appltsys`, `reil`, `papi`, `widht` 
   * from Parking: `position`, `direction`, `name`
   * from Helipad: `position`, `direction`, `radius`, `name`
 
 * from the TOC file:
-  * from xref: `name`, `position`, `direction` (this converts FS 2`orientation` to FS 4-`direction`)
+  * from xref: `name` (changed from uppercase to lowercase), `position`, `direction` (converted from FS 2`orientation` to FS 4-`direction`)
 
 * added as default values:
-  * for Tower: `tower_heading [0]`
+  * for Tower-View: `tower_heading [0]`
   * for Runway: `extension [0]`, `direction []`, `elevation] []`, `approach [false]`, `takeoff [false]`, `marking_piano [false]`, `marking_touchdown [false]`, `marking_threshold [false]`, `marking_aimingpoint [false]`, `marking_nonumbers [true]`, `marking_skidmark [false]`, `material [asphalt_runway__typestd]`, `brightness [0. 5]`, `marking_centreline [true]`, `marking_sidelines [false]`
   * for Parking: `radius [40]`, `type [parked_jet]`.
   * for Boundaries: `points [(lon+0.04 lat+0.02) (lon+0.04 lat-0.02) (lon-0.04 lat-0.02) (lon-0.04 lat+0.02) (lon+0.04 lat+0.02)]`
@@ -42,9 +42,9 @@ These data[^2] are inserted into the TAP file:
 
 ## Installation
 
-After downloading the "Download ZIP" file, it is automatically unzipped into the "fs2_to_fs4_airport_converter-main" folder with the subfolder "fs2_to_fs4_airport_converter".
+When downloading, the folder "fs2_to_fs4_airport_converter-main" with the subfolder "fs2_to_fs4_airport_converter" is automatically created.
 
-Move "fs2_to_fs4_airport_converter" to a location accessible from the TERMINAL.
+Move the subfolder "fs2_to_fs4_airport_converter" to a location accessible from the TERMINAL.
 
 ## Deinstallation
 
@@ -77,7 +77,7 @@ The program creates an FS 4 file ICAO.TAP from the two FS 2 files ICAO.TOC and I
 
 This process may take a few seconds:
 - If the program has run through without errors, the cursor will then appear in the TERMINAL at the input point as before the program started.
-- If there are errors, the ICAO codes of the affected airports are listed in the TERMINAL. The only known errors so far are letters in the `name` and `name_short` fields that do not correspond to the ASCII code. These letters must then be replaced by ASCII-compliant characters.
+- If there are errors, the ICAO codes of the affected airports are listed in the TERMINAL. **The only known errors** so far are letters in the `name` and `name_short` fields that do not correspond to the ASCII code. These letters must then be replaced by ASCII-compliant characters.
 
 
 # Applications after converting
@@ -89,10 +89,10 @@ The TAP files can now be used.
 With [airport TAP converter (see this article in the Aerofly Forum)](https://www.aerofly.com/community/forum/index.php?thread/19827-aerofly-fs-airport-creation-tool-early-alpha-version-work-in-progress/&postID=123276#post123276) the TAP files are converted for direct use in FS 4. An "icao" folder with the four files "icao.tmb", "icao.toc", "icao.tsc" and "icao.wad" is created for each airport and placed in the user folder "/Users/username/Library/Application Support/Aerofly FS 4/**scenery/airport**".
 
 These airfields in FS 4 are at the same level as FS 2 and lack the FS 4 features:
-* Towers face east (`direction [90]`).
+* Towers (xref, not tower_view) face east (`direction [90]`).
 * Runways have a standard design (see "Data" above).
 * Parking positions have a standard design (see "Data" above).
-*Imported buildings may overlap with existing automatic buildings.
+* Imported buildings may overlap with existing automatic buildings.
 
 ## 2. Editing with a text editor
 
@@ -104,16 +104,4 @@ After editing with a text editor, the TAP files can then be used in FS 4 as desc
 
 The TAP files can be integrated directly into the [Airport Creation Tool (currently in alpha testing)](https://tap-user.aerofly.com) and further edited there.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+An **error** occurs during import if the TAP file contains an xref element that is not present in the Airport Creation Tool - then the displayed xref element in the TAP file must be deleted (!).
