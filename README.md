@@ -2,6 +2,9 @@
 
 This work is licensed under **Creative Commons Attribution-NonCommercial 4.0 International License** ([short description](https://creativecommons.org/licenses/by-nc/4.0/deed.en) / [copy of this license](https://creativecommons.org/licenses/by-nc/4.0/legalcode)).
 
+# Disclaimer
+
+The software has been developed and tested to the best of our knowledge and belief, but there is no guarantee that it will work and use is always at your own risk.
 
 # Object
 
