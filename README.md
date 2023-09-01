@@ -1,6 +1,6 @@
 # Lizenz
 
-This work is licensed under **Creative Commons Attribution-NonCommercial 4.0 International License** ([short description](https://creativecommons.org/licenses/by-nc/4.0/deed.en); [copy of this license](https://creativecommons.org/licenses/by-nc/4.0/legalcode)).
+This work is licensed under **Creative Commons Attribution-NonCommercial 4.0 International License** ([short description](https://creativecommons.org/licenses/by-nc/4.0/deed.en) / [copy of this license](https://creativecommons.org/licenses/by-nc/4.0/legalcode)).
 
 
 # Object
